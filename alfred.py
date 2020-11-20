@@ -52,10 +52,7 @@ def data_handling_preprocessing_1():
 
 
 def create_new_pivot_dataset():
-    df = pd.read_csv('data/customer_data.csv')
-    df2 = pd.read_csv('data/internet_explorers.csv')
-
-    df = df.append(df2)
+    df = pd.read_csv('data/sample.csv')
 
     months = df.month.unique()
     dict = {}
@@ -66,7 +63,7 @@ def create_new_pivot_dataset():
     df['month'].replace(dict, inplace=True)
     table = df.pivot_table(columns='month', index='customer_id')
 
-    table.to_csv('new_pivot.csv')
+    table.to_csv('pivot.csv')
 
 
 def infer():
